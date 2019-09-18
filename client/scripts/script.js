@@ -67,11 +67,21 @@ app.controller("addressCtrl", function($scope, $http) {
 });
 app.controller("zipcodeCtrl", function($scope, $http) {
   $scope.getAddress = function() {
-    if ($scope.zipcode == "") {
+    if ($scope.zipcode == "" || $scope.zipcode == null) {
       return alert("Please enter valid zipcode!");
     }
     $http.get("getAddress/" + $scope.zipcode).then(function(response) {
-      $scope.address = response.data;
+      let addressData = response.data;
+      if (addressData) {
+        $scope.address =
+          addressData.city +
+          ", " +
+          addressData.state +
+          ", " +
+          addressData.country;
+      } else {
+        return alert("Please enter valid zipcode!");
+      }
     });
   };
 });

@@ -22,7 +22,9 @@
           class="form-control"
         >
           <option value="" selected>Choose State</option>
-          <option ng-repeat="state in states">{{ state }}</option>
+          <option ng-repeat="state in states" value="{{ state }}">
+            {{ state }}
+          </option>
         </select>
       </div>
       <div class="form-group col-md-4">
@@ -34,7 +36,9 @@
           class="form-control"
         >
           <option value="" selected>Choose City</option>
-          <option ng-repeat="city in cities">{{ city }}</option>
+          <option ng-repeat="city in cities" value="{{ city }}">
+            {{ city }}
+          </option>
         </select>
       </div>
       <!-- <div class="form-group col-md-3">
