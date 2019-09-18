@@ -1,0 +1,51 @@
+<div ng-controller="addressCtrl">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputCountry">Country</label>
+        <select
+          id="inputCountry"
+          ng-model="selectedCountry"
+          ng-change="getStates()"
+          class="form-control"
+        >
+          <option value="" selected>Choose Country</option>
+          <option ng-repeat="country in countries">{{ country }}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select
+          id="inputState"
+          ng-model="selectedState"
+          ng-change="getCities()"
+          class="form-control"
+        >
+          <option value="" selected>Choose State</option>
+          <option ng-repeat="state in states">{{ state }}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputZip">City</label>
+        <select
+          id="inputCity"
+          ng-change="getZipcode()"
+          ng-model="selectedCity"
+          class="form-control"
+        >
+          <option value="" selected>Choose City</option>
+          <option ng-repeat="city in cities">{{ city }}</option>
+        </select>
+      </div>
+      <!-- <div class="form-group col-md-3">
+        <label> </label>
+        <button class="btn btn-primary">
+          Search
+        </button>
+      </div> -->
+    </div>
+  </form>
+  <div class="jumbotron text-center" ng-if="zipcode">
+    <h1>Zipcode :- {{ zipcode }}</h1>
+  </div>
+</div>
